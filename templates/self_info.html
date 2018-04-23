@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/self_info.css') }}">
+{% endblock %}
+
+{% block title %}个人信息{% endblock %}
+
+{% block main %}
+    <div style="position:relative">
+        <img width="200" height="200" src="{{ url_for('static',filename='images/volleyball.png') }}" alt="">
+
+        <span style="position:absolute; margin-left:15px; font-size:20px; top:20%;">name: {{ user.username }}</span>
+        <span style="position:absolute; margin-left:15px; font-size:20px; top:40%;">aboutme: {{ user.aboutme }}</span>
+    </div>
+
+    <br><br>
+    <form action="" method="post">
+	    修改信息<br><br>
+		name:
+		<input type="text" name="username" value={{ user.username }}>
+		<br>
+		aboutme:
+		<input type="text" name="aboutme" value={{ user.aboutme }}>
+		<br>
+		<br>
+		<input type="submit" value="Submit" name="submit">
+	</form>
+{% endblock %}
+
